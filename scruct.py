@@ -1,7 +1,7 @@
 class_stats = {
-    'statsList': ["health", "mana", "strengh", "dexterity", "vitality", "magic"],
+    'statsList': ["Health", "Mana", "Strengh", "Dexterity", "Vitality", "Magic"],
     'barbStats': {
-        'hp': 300,
+        'hp': 70,
         'mana': 100,
         'str': 40,
         'dex': 15,
