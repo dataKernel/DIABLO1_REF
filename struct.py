@@ -1,17 +1,30 @@
 class_stats = {
     'statsList': ["Health", "Mana", "Strengh", "Dexterity", "Vitality", "Magic"],
-    'barbBaseStats': {
-        'hp': 70,
-        'mana': 100,
-        'str': 40,
-        'dex': 15,
-        'vit': 250,
-        'mag': 1
+    
+    'barb': {
+        'stats': {
+            'hp': 70,
+            'mana': 0,
+            'str': 40,
+            'dex': 20,
+            'vit': 25,
+            'mag': 0
+        },
+        'maxStats': {
+            'hp': 416,
+            'mana': 0,
+            'str': 255,
+            'dex': 55,
+            'vit': 150,
+            'mag': 0
+        }      
     }
 }
 
 class_class = {
-    'barbarian': {
-        'stats': class_stats['barbStats']
+    'classesList': ["Barbarian", "Warrior", "Rogue", "Sorcerer"],
+    
+    'barb': {
+        'stats': class_stats['barb']
     }
 }
