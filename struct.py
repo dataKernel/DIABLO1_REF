@@ -1,4 +1,4 @@
-class_stats = {
+stats = {
     'statsList': ["Health", "Mana", "Strengh", "Dexterity", "Vitality", "Magic"],
     
     'barb': {
@@ -21,10 +21,10 @@ class_stats = {
     }
 }
 
-class_class = {
-    'classesList': ["Barbarian", "Warrior", "Rogue", "Sorcerer"],
+classes = {
+    'classes': ["Barbarian", "Warrior", "Rogue", "Sorcerer"],
     
     'barb': {
-        'stats': class_stats['barb']
+        'stats': stats['barb']
     }
 }
