@@ -32,7 +32,12 @@ stats = {
         'perLvlUp': {'hp': 2, 'mana': 1, 'res': 1},
         'perAttribute': {'vita': {'hp': 2}, 'magic': {'mana': 1}}
     },
-    'rogue': {},
+    'rogue': {
+        'baseStats': {'hp': 45, 'mana': 22, 'str': 20, 'dex': 30, 'vita': 20, 'mag': 15},
+        'maxStats': {'hp': 201, 'mana': 173, 'str': 55, 'dex': 250, 'vita': 80, 'mag': 70},
+        'perLvlUp': {'hp': 2, 'mana':2, 'res': 1},
+        'perAttribute': {'vita': {'hp': 1}, 'magic': {'mana': 1}}
+    },
     'sorcerer': {},
     #--- HELLFIRE CLASS ---
     'barb': {
