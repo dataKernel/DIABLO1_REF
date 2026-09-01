@@ -32,6 +32,9 @@ stats = {
         'perLvlUp': {'hp': 2, 'mana': 1, 'res': 1},
         'perAttribute': {'vita': {'hp': 2}, 'magic': {'mana': 1}}
     },
+    'rogue': {},
+    'sorcerer': {},
+    #--- HELLFIRE CLASS ---
     'barb': {
         'attributes': {'hp': 70, 'mana': 0, 'str': 40, 'dex': 20 , 'vita': 25, 'mag': 0},
         'maxStats': {'hp': 416, 'mana': 0, 'str': 255, 'dex': 55,'vita': 150, 'mag': 0},
@@ -48,4 +51,7 @@ classes = {
     }
 }
 
-print(f"check stats_class_war: {classes['war']['stats']}")
+warStats = classes['war']['stats']
+
+for elem in warStats['baseStats']:
+    print(f"{elem}: {warStats['baseStats'][elem]}")
