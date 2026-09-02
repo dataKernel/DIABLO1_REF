@@ -41,20 +41,3 @@ classes = {
     }
 }
 
-
-def displayStatsTable(title, dataDict):
-    """Affiche un tableau propre qui s'adapte à la taille du dictionnaire fourni"""
-    print(f"\n{'=' * 10} {title.upper()} {'=' * 10}")
-    
-    for key, value in dataDict.items():
-        # Si la valeur est elle-même un dictionnaire (ex: toutes les catégories)
-        if isinstance(value, dict):
-            print(f"\n[ {key.upper()} ]")
-            for subKey, subValue in value.items():
-                print(f"  {subKey.capitalize():<12} : {subValue}")
-        else:
-            # Affichage plat classique (aligné à gauche sur 12 caractères)
-            print(f"{key.capitalize():<12} : {value}")
-            
-    print("=" * (22 + len(title)))
-
