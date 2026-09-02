@@ -1,8 +1,12 @@
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 stats = {
+    #----------------------------------------------------
+    'hash': {
+       'hp': 'Health', 
+    },
     #---------------- VANILLA CLASS ---------------------
     'war': {
-        'baseStats': { 
+        'baseStats': {
             'hp': {'min': 70, 'max': 316},
             'mana': {'min': 10, 'max': 50},
             'str': {'min': 30, 'max': 250},
@@ -68,4 +72,3 @@ classes = {
         'stats':stats['war']
     }
 }
-
