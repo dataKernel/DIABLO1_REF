@@ -1,36 +1,21 @@
-#--- WARRIOR INFOS ---
-# Beginning Stats
-# Strength	30
-# Magic	10
-# Dexterity	20
-# Vitality	25
-# Life	70
-# Mana	10
-
-# General
-# Life / Level	+2
-# Life / Vitality	+2
-# Mana / Level	+1
-# Mana / Magic	+1
-
-# Maximum Stats
-# Strength	250
-# Magic	50
-# Dexterity	60
-# Vitality	100
-
-
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 stats = {
-    'attributes': ["Strength", "Dexterity", "Vitality", "Magic"],
-    'baseStats': ["Health", "Mana", "Strength", "Dexterity", "Vitality", "Magic"],
-    'resistances': ["magic", "fire", "lightning"],
-    
     'war': {
-        'baseStats': {'hp': 70, 'mana': 10, 'str': 30, 'dex': 20, 'vita': 25, 'mag': 10},
-        'maxStats': {'hp': 316, 'mana': 50, 'str': 250, 'dex': 60, 'vita': 100, 'mag': 99},
+        'baseStats': { 
+            'hp': {'min': 70, 'max': 316},
+            'mana': {'min': 10, 'max': 50},
+            'str': {'min': 30, 'max': 250},
+            'dex': {'min': 20, 'max': 60},
+            'vita': {'min': 25, 'max':100},
+            'mag': {'min': 10, 'max': 99}
+        },
+        'res': {'fire': 1, 'lightning': 1, 'magic': 1},
+        
         'perLvlUp': {'hp': 2, 'mana': 1, 'res': 1},
-        'perAttribute': {'vita': {'hp': 2}, 'magic': {'mana': 1}}
+        'perAttribute': {
+            'vita': {'hp': 2}, 
+            'magic': {'mana': 1}
+        }
     },
     'rogue': {
         'baseStats': {'hp': 45, 'mana': 22, 'str': 20, 'dex': 30, 'vita': 20, 'mag': 15},
@@ -56,7 +41,20 @@ classes = {
     }
 }
 
-warStats = classes['war']['stats']
 
-for elem in warStats['baseStats']:
-    print(f"{elem}: {warStats['baseStats'][elem]}")
+def displayStatsTable(title, dataDict):
+    """Affiche un tableau propre qui s'adapte à la taille du dictionnaire fourni"""
+    print(f"\n{'=' * 10} {title.upper()} {'=' * 10}")
+    
+    for key, value in dataDict.items():
+        # Si la valeur est elle-même un dictionnaire (ex: toutes les catégories)
+        if isinstance(value, dict):
+            print(f"\n[ {key.upper()} ]")
+            for subKey, subValue in value.items():
+                print(f"  {subKey.capitalize():<12} : {subValue}")
+        else:
+            # Affichage plat classique (aligné à gauche sur 12 caractères)
+            print(f"{key.capitalize():<12} : {value}")
+            
+    print("=" * (22 + len(title)))
+
