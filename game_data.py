@@ -11,8 +11,8 @@ stats = {
             'mana': {'min': 10, 'max': 50},
             'str': {'min': 30, 'max': 250},
             'dex': {'min': 20, 'max': 60},
-            'vita': {'min': 25, 'max':100},
-            'mag': {'min': 10, 'max': 99}
+            'mag': {'min': 10, 'max': 99},
+            'vita': {'min': 25, 'max':100}
         },
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
         #-----------------------------------------------
@@ -28,8 +28,8 @@ stats = {
             'mana': {'min': 22, 'max': 173},
             'str': {'min': 20, 'max': 55},
             'dex': {'min': 30, 'max': 250},
-            'vita':{'min': 20, 'max':80},
-            'mag':{'min': 15, 'max': 70}
+            'mag':{'min': 15, 'max': 70},
+            'vita':{'min': 20, 'max':80}
         },
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
         #-----------------------------------------------
@@ -45,8 +45,8 @@ stats = {
             'mana': {'min': 70, 'max': 596},
             'str': {'min': 15, 'max': 45},
             'dex': {'min': 15, 'max': 85},
-            'vita':{'min': 20, 'max':80},
-            'mag':{'min': 35, 'max': 250}  
+            'mag':{'min': 35, 'max': 250},  
+            'vita':{'min': 20, 'max':80}
             },
             'res': {'fire': 1, 'lightning': 1, 'magic': 1},
             #-----------------------------------------------
@@ -57,12 +57,7 @@ stats = {
             }},
     #-------------------- HELLFIRE CLASS --------------------
     #(a mettre à jour avec monk)
-    'barb': {
-        'attributes': {'hp': 70, 'mana': 0, 'str': 40, 'dex': 20 , 'vita': 25, 'mag': 0},
-        'maxStats': {'hp': 416, 'mana': 0, 'str': 255, 'dex': 55,'vita': 150, 'mag': 0},
-        'perLvlUp': {'hp': 2, 'mana': 0, 'res': 1},
-        'perAttribute': {'vita': 2}   
-    },
+    'barb': {},
 }
 
 classes = {
