@@ -1,7 +1,7 @@
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 stats = {
     #----------------------------------------------------
-    'hash': {
+    'hashMap': {
         'war': "Warrior",
         'rog': "Rogue",
         'sorc': "Sorcerer",
@@ -31,7 +31,7 @@ stats = {
             'magic': {'mana': 1}
         }
     },
-    'rogue': {
+    'rog': {
         'baseStats': {
             'hp': {'min': 45, 'max': 201},
             'mana': {'min': 22, 'max': 173},
@@ -48,7 +48,7 @@ stats = {
             'magic': {'mana': 1}
         }
     },
-    'sorcerer': {
+    'sorc': {
         'baseStats': {
             'hp': {'min': 30, 'max': 138},
             'mana': {'min': 70, 'max': 596},
@@ -66,7 +66,6 @@ stats = {
             }},
     #-------------------- HELLFIRE CLASS --------------------
     #(a mettre à jour avec monk)
-    'barb': {},
 }
 
 classes = {
