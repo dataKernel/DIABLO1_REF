@@ -7,7 +7,6 @@ def     get_stats():
 
 def     get_base_stats(className=None):
     pass
-
 def     get_per_lvl_up(className=None):
     pass
 
@@ -38,7 +37,7 @@ def     get_res(className=None):
                     if not check:
                         resList.append(res)
                     valList.append(statsData[key]['res'][res])
-            check = True
+                check = True
             
         print(f"elems: {resList}")
         print(f"values: {valList}")
