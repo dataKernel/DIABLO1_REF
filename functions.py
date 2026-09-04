@@ -29,18 +29,18 @@ def     get_res(className=None):
     else:
         #hashmap for elems display when we need them
         check = False
-        for key in statsData:
-            if key != "hashMap":
+        for keyClass in statsData:
+            if keyClass != "hashMap":
                 #we add the className first to values
-                valList.append(statsData['hashMap'][key])
-                for res in statsData[key]['res']:
+                valList.append(statsData['hashMap'][keyClass])
+                for keyRes, valRes in statsData[keyClass]['res'].items():
                     if not check:
-                        resList.append(res)
-                    valList.append(statsData[key]['res'][res])
+                        resList.append(keyRes)
+                    valList.append(valRes)
                 check = True
-            
-        print(f"elems: {resList}")
-        print(f"values: {valList}")
+                matrix.append(tuple(valList))
+                valList = [] #we reset the list
+        matrix.insert(0, tuple(resList))
         
     return(matrix)
 
