@@ -1,17 +1,3 @@
-#------------------------ HASHMAP -----------------------
-hashmap = {
-    'war': "Warrior",
-    'rog': "Rogue",
-    'sorc': "Sorcerer",
-    'barb': "Barbarian",
-    'hp': "Health",
-    'mana': "Mana",
-    'str': "Strength",
-    'dex': "Dexterity",
-    'mag': "Magician",
-    'vita': "Vitality"
-    }
-
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 stats = {
     #---------------- VANILLA CLASS ---------------------

@@ -1,10 +1,11 @@
-import game_data
+import  data.common 
+import  data.stats
 
-statsData = game_data.stats
+commonData = data.common
+statsData = data.stats.stats
 
 def     get_stats():
     pass
-
 
 def     get_per_lvl_up(className=None):
     pass
@@ -67,4 +68,3 @@ def     get_resClass(className):
         
     return(matrix)
 
-print(get_baseStatsClass("war"))
