@@ -17,6 +17,7 @@ def     get_per_attribute(className=None):
 def     get_res():
     matrix = []
     resList, valList = [], [] ## Create 2 lists to store 2D info before tuple conversion
+    
     check = False
     for keyClass in statsData:
         if keyClass != "hashMap":
@@ -38,14 +39,12 @@ def     get_res_per_class(className):
     resList, valList = [], [] ## Create 2 lists to store 2D info before tuple conversion
     
     data = statsData[className]['res']
-    
     for key, val in data.items():
         resList.append(key)
         valList.append(val)
     #list convvertion to tuples and add them to the matrix
     matrix.append(tuple(resList))
     matrix.append(tuple(valList))
-    
         
     return(matrix)
 
