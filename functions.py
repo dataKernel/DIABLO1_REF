@@ -5,16 +5,35 @@ statsData = game_data.stats
 def     get_stats():
     pass
 
-def     get_base_stats(className=None):
-    pass
+
 def     get_per_lvl_up(className=None):
     pass
 
 def     get_per_attribute(className=None):
     pass
 
+#---------------------- BASE_STATS FUNCTIONS -----------------
+def     get_baseStatsClass(className):
+    matrix = []
+    baseStatList, minVal, maxVal = [], ["min"], ["max"] ## Create 3 lists to store 2D info before tuple conversion
+    
+    data = statsData[className]['baseStats']
+    
+    for key, val in data.items():
+        # affichage pour recheck les infos: print(f"key:{key} -- data:{val}")
+        baseStatList.append(key)
+        minVal.append(val['min'])
+        maxVal.append(val['max'])   
+    matrix.extend([tuple(baseStatList), tuple(minVal), tuple(maxVal)])
+    
+    return(matrix)
+
+def     get_baseStats():
+    pass
+
+
 #---------------------- RES FUNCTIONS ------------------------
-def     get_res():
+def     get_res(): #faudra refactoriser cte func sans le parcours dynamique de clefs sauf si on est sur que on a énormément de type de res à ajouter
     matrix = []
     resList, valList = [], [] ## Create 2 lists to store 2D info before tuple conversion
     
@@ -34,7 +53,7 @@ def     get_res():
     
     return(matrix)
 
-def     get_res_per_class(className):
+def     get_resClass(className):
     matrix = []
     resList, valList = [], [] ## Create 2 lists to store 2D info before tuple conversion
     
@@ -48,3 +67,4 @@ def     get_res_per_class(className):
         
     return(matrix)
 
+print(get_baseStatsClass("war"))
