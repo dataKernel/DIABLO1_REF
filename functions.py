@@ -1,20 +1,21 @@
+#data imports
 import  data.common 
 import  data.stats
-
+#global definition
 commonData = data.common
 statsData = data.stats.stats
 
 def     get_stats():
     pass
 
-def     get_per_lvl_up(className=None):
+def     get_per_lvl_up(className:str):
     pass
 
-def     get_per_attribute(className=None):
+def     get_per_attribute(className:str):
     pass
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
-def     get_baseStatsClass(className):
+def     get_baseStatsClass(className:str) -> list[tuple]:
     matrix = []
     baseStatsList, minVal, maxVal = [], ["min"], ["max"] # Create 3 lists to store 2D info before tuple conversion
     
@@ -33,6 +34,7 @@ def     get_baseStats():
     matrix = []
     baseStatsList, valList = list(statsData['war']['baseStats'].keys()), [] #Create 2 lists to store 2D info in matrix before tuple conversion 
     
+    print(f"valList: {valList}")
     print(f"baseStatList: {baseStatsList}")
     
 
@@ -66,4 +68,5 @@ def     get_resClass(className):
         
     return(matrix)
 
-print(get_res())
+# get_baseStats()
+print(statsData)
