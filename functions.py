@@ -33,9 +33,11 @@ def     get_baseStatsClass(className:str) -> list[tuple]:
 def     get_baseStats():
     matrix = []
     baseStatsList, valList = list(statsData['war']['baseStats'].keys()), [] #Create 2 lists to store 2D info in matrix before tuple conversion 
-    
-    print(f"valList: {valList}")
+    matrix.append(tuple(baseStatsList))
+    matrix.append(tuple(valList))
     print(f"baseStatList: {baseStatsList}")
+    print(f"valList: {valList}")
+    print(f"matrix: {matrix}")
     
 
 #---------------------- RES FUNCTIONS ------------------------
@@ -68,5 +70,4 @@ def     get_resClass(className):
         
     return(matrix)
 
-# get_baseStats()
-print(statsData)
+get_baseStats()
