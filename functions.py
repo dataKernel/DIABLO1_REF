@@ -1,18 +1,23 @@
-#data imports
+# --data imports--
 import  data.common 
 import  data.stats
-#global definition
+# --global definition--
 commonData = data.common
 statsData = data.stats.stats
+
+
 
 def     get_stats():
     pass
 
+#---------------------- PER_LEVEL & PER_ATTRIBUTE FUNCTIONS -----------------
+def     get_per_attribute_class(className:str):
+    pass
+
+
 def     get_per_lvl_up(className:str):
     pass
 
-def     get_per_attribute(className:str):
-    pass
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
 def     get_baseStatsClass(className:str) -> list[tuple]:
@@ -31,25 +36,26 @@ def     get_baseStatsClass(className:str) -> list[tuple]:
 
 def     get_baseStats():
     matrix = []
-    baseStatsList, valList = list(statsData['war']['baseStats'].keys()), [] #Create 2 lists to store 2D info in matrix before tuple conversion 
+    baseStatsList, valList = list(statsData['war']['baseStats'].keys()), [] # Create 2 lists to store 2D info in matrix before tuple conversion 
     for keyClass in statsData:
         valList.append(commonData.hashmap[keyClass])
         for valBaseStats in statsData[keyClass]['baseStats'].values():
             val = f"min: {valBaseStats['min']}, max: {valBaseStats['max']}"
             valList.append(val)
-    matrix.append(tuple(baseStatsList))
-    matrix.append(tuple(valList))
+        matrix.append(tuple(valList))
+        valList = []# we reset the list
+    matrix.insert(0, tuple(baseStatsList))
     
-    print(f"matrix: {matrix}")
+    return(matrix)
     
 
 #---------------------- RES FUNCTIONS ------------------------
 def     get_res():
     matrix = []
-    resList, valList = list(statsData['war']['res'].keys()), [] #Create 2 lists to store 2D info before tuple conversion
+    resList, valList = list(statsData['war']['res'].keys()), [] # Create 2 lists to store 2D info before tuple conversion
     
     for keyClass in statsData:
-        #we add the className first to values
+        # we add the className first to values
         valList.append(commonData.hashmap[keyClass])
         for valRes in statsData[keyClass]['res'].values():
             valList.append(valRes)
@@ -61,13 +67,13 @@ def     get_res():
 
 def     get_resClass(className):
     matrix = []
-    resList, valList = [], [] #Create 2 lists to store 2D info before tuple conversion
+    resList, valList = [], [] # Create 2 lists to store 2D info before tuple conversion
     
     data = statsData[className]['res']
     for key, val in data.items():
         resList.append(key)
         valList.append(val)
-    #list convvertion to tuples and add them to the matrix
+    # list convvertion to tuples and add them to the matrix
     matrix.append(tuple(resList))
     matrix.append(tuple(valList))
         
