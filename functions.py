@@ -36,9 +36,11 @@ def     get_baseStats():
         valList.append(commonData.hashmap[keyClass])
         for valBaseStats in statsData[keyClass]['baseStats'].values():
             val = f"min: {valBaseStats['min']}, max: {valBaseStats['max']}"
-            print(f"val: {val}")
+            valList.append(val)
     matrix.append(tuple(baseStatsList))
     matrix.append(tuple(valList))
+    
+    print(f"matrix: {matrix}")
     
 
 #---------------------- RES FUNCTIONS ------------------------
