@@ -18,7 +18,6 @@ def     get_per_attribute(className:str):
 def     get_baseStatsClass(className:str) -> list[tuple]:
     matrix = []
     baseStatsList, minVal, maxVal = [], ["min"], ["max"] # Create 3 lists to store 2D info before tuple conversion
-    
     data = statsData[className]['baseStats']
     
     for key, val in data.items():
@@ -33,11 +32,13 @@ def     get_baseStatsClass(className:str) -> list[tuple]:
 def     get_baseStats():
     matrix = []
     baseStatsList, valList = list(statsData['war']['baseStats'].keys()), [] #Create 2 lists to store 2D info in matrix before tuple conversion 
+    for keyClass in statsData:
+        valList.append(commonData.hashmap[keyClass])
+        for valBaseStats in statsData[keyClass]['baseStats'].values():
+            val = f"min: {valBaseStats['min']}, max: {valBaseStats['max']}"
+            print(f"val: {val}")
     matrix.append(tuple(baseStatsList))
     matrix.append(tuple(valList))
-    print(f"baseStatList: {baseStatsList}")
-    print(f"valList: {valList}")
-    print(f"matrix: {matrix}")
     
 
 #---------------------- RES FUNCTIONS ------------------------
