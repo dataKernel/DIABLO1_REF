@@ -1,9 +1,8 @@
 # --data imports--
 import  data.common 
-import  data.stats
+from data.stats import stats as statsData
 # --global definition--
-commonData = data.common
-statsData = data.stats.stats
+
 
 
 
@@ -12,8 +11,7 @@ def     get_stats():
 
 #---------------------- PER_LEVEL & PER_ATTRIBUTE FUNCTIONS -----------------
 def     get_per_attribute_class(className:str):
-    pass
-
+   pass 
 
 def     get_per_lvl_up(className:str):
     pass
@@ -79,4 +77,4 @@ def     get_resClass(className):
         
     return(matrix)
 
-get_baseStats()
+get_per_attribute_class("war")
