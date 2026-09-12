@@ -3,9 +3,6 @@ import  data.common as commonData
 from data.stats import stats as statsData
 # --global definition--
 
-
-
-
 def     get_stats():
     pass
 
@@ -14,6 +11,7 @@ def     get_perAttribute_class(className:str):
    data = statsData[className]['perAttribute']
    
    attributes, stats = [], []
+   
 
 def     get_perLvl(className:str):
     pass
@@ -52,17 +50,16 @@ def     get_baseStats():
 #---------------------- RES FUNCTIONS ------------------------
 def     get_res():
     matrix = []
-    resList, valList = list(statsData['war']['res'].keys()), [] # Create 2 lists to store 2D info before tuple conversion
-    
+    # Create 2 lists to store 2D info before tuple conversion
+    resList = tuple(statsData['war']['res'].keys())
+    matrix.append(resList)
     for keyClass in statsData:
-        # we add the className first to values
-        valList.append(commonData.hashmap[keyClass])
-        for valRes in statsData[keyClass]['res'].values():
-            valList.append(valRes)
+        data = statsData[keyClass]['res']
+        valList = list(data.values())
+        # we add the className at the begining of valList
+        valList.insert(0, commonData.hashmap[keyClass])
+        # we add the valList to matrix
         matrix.append(tuple(valList))
-        valList = [] #we reset the list
-    matrix.insert(0, tuple(resList))
-    
     return(matrix)
 
 def     get_res_class(className):
@@ -76,4 +73,4 @@ def     get_res_class(className):
     return(matrix)
 
 # get_perAttribute_class("war")
-print(get_res_class("war"))
+print(get_res())
