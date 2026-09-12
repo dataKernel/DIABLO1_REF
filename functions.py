@@ -1,5 +1,5 @@
 # --data imports--
-import  data.common 
+import  data.common as commonData
 from data.stats import stats as statsData
 # --global definition--
 
@@ -10,15 +10,17 @@ def     get_stats():
     pass
 
 #---------------------- PER_LEVEL & PER_ATTRIBUTE FUNCTIONS -----------------
-def     get_per_attribute_class(className:str):
-   pass 
+def     get_perAttribute_class(className:str):
+   data = statsData[className]['perAttribute']
+   
+   attributes, stats = [], []
 
-def     get_per_lvl_up(className:str):
+def     get_perLvl(className:str):
     pass
 
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
-def     get_baseStatsClass(className:str) -> list[tuple]:
+def     get_baseStats_class(className:str) -> list[tuple]:
     matrix = []
     baseStatsList, minVal, maxVal = [], ["min"], ["max"] # Create 3 lists to store 2D info before tuple conversion
     data = statsData[className]['baseStats']
@@ -63,18 +65,15 @@ def     get_res():
     
     return(matrix)
 
-def     get_resClass(className):
+def     get_res_class(className):
+    resData = statsData[className]['res']# we get the data for resistances
     matrix = []
-    resList, valList = [], [] # Create 2 lists to store 2D info before tuple conversion
-    
-    data = statsData[className]['res']
-    for key, val in data.items():
-        resList.append(key)
-        valList.append(val)
-    # list convvertion to tuples and add them to the matrix
-    matrix.append(tuple(resList))
-    matrix.append(tuple(valList))
+    # Create 2 lists to store 2D info before tuple conversion
+    resList, valList = tuple(resData.keys()), tuple(resData.values())
+    matrix.append(resList)
+    matrix.append(valList)
         
     return(matrix)
 
-get_per_attribute_class("war")
+# get_perAttribute_class("war")
+print(get_res_class("war"))

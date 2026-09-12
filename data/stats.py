@@ -46,7 +46,7 @@ stats = {
             },
             'res': {'fire': 1, 'lightning': 1, 'magic': 1},
             #-----------------------------------------------
-            'perLvlUp': {'hp': 1, 'mana':2, 'res': 1},
+            'perLvl': {'hp': 1, 'mana':2, 'res': 1},
             'perAttribute': {
                 'vita': {'hp': 1}, 
                 'magic': {'mana': 2}
