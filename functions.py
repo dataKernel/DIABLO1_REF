@@ -6,7 +6,7 @@ from data.stats import stats as statsData
 def     get_stats():
     pass
 
-#---------------------- PER_LEVEL & PER_ATTRIBUTE FUNCTIONS -----------------
+#-----------------PER_LEVEL & PER_ATTRIBUTE FUNCTIONS --------
 def     get_perAttribute_class(className:str):
    data = statsData[className]['perAttribute']
    
@@ -46,11 +46,10 @@ def     get_baseStats():
     
     return(matrix)
     
-
 #---------------------- RES FUNCTIONS ------------------------
-def     get_res():
+def     get_res() -> list[tuple]:
     matrix = []
-    # Create 2 lists to store 2D info before tuple conversion
+    #we add the resistances names in the matrix first
     resList = tuple(statsData['war']['res'].keys())
     matrix.append(resList)
     for keyClass in statsData:
@@ -62,10 +61,10 @@ def     get_res():
         matrix.append(tuple(valList))
     return(matrix)
 
-def     get_res_class(className):
+def     get_res_class(className:str) -> list[tuple]:
     resData = statsData[className]['res']# we get the data for resistances
     matrix = []
-    # Create 2 lists to store 2D info before tuple conversion
+    # Create 2 lists to store 2D infos
     resList, valList = tuple(resData.keys()), tuple(resData.values())
     matrix.append(resList)
     matrix.append(valList)
