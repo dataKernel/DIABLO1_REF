@@ -8,9 +8,16 @@ def     get_stats():
 
 #-----------------PER_LEVEL & PER_ATTRIBUTE FUNCTIONS --------
 def     get_perAttribute_class(className:str):
+   matrix = []
+   attributes, stats = [], []
    data = statsData[className]['perAttribute']
    
-   attributes, stats = [], []
+   for keyAttributes in data:
+       attributes.append(keyAttributes)
+       for keyStats in data[keyAttributes]:
+           string = f"{keyStats}:{data[keyAttributes][keyStats]}"
+       
+   
    
 
 def     get_perLvl(className:str):
@@ -47,13 +54,13 @@ def     get_baseStats():
     return(matrix)
     
 #---------------------- RES FUNCTIONS ------------------------
-def     get_res() -> list[tuple]:
+def     get_resists() -> list[tuple]:
     matrix = []
     #we add the resistances names in the matrix first
     resList = tuple(statsData['war']['res'].keys())
     matrix.append(resList)
     for keyClass in statsData:
-        data = statsData[keyClass]['res']
+        data = statsData[keyClass]['res']# we get the class resist datas
         valList = list(data.values())
         # we add the className at the begining of valList
         valList.insert(0, commonData.hashmap[keyClass])
@@ -61,7 +68,7 @@ def     get_res() -> list[tuple]:
         matrix.append(tuple(valList))
     return(matrix)
 
-def     get_res_class(className:str) -> list[tuple]:
+def     get_resists_class(className:str) -> list[tuple]:
     resData = statsData[className]['res']# we get the data for resistances
     matrix = []
     # Create 2 lists to store 2D infos
@@ -72,4 +79,3 @@ def     get_res_class(className:str) -> list[tuple]:
     return(matrix)
 
 # get_perAttribute_class("war")
-print(get_res())
