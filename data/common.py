@@ -13,7 +13,7 @@ hashmap = {
         'mana': "Mana",
         'str': "Strength",
         'dex': "Dexterity",
-        'mag': "Magician",
+        'mag': "Magic",
         'vita': "Vitality"
     }
 }

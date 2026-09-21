@@ -15,7 +15,7 @@ stats = {
         'perLvlUp': {'hp': 2, 'mana': 1, 'res': 1},
         'perAttribute': {
             'vita': "+2 health",
-            'magic': "+1 mana"
+            'mag': "+1 mana"
         }
     },
     'rog': {
@@ -31,8 +31,8 @@ stats = {
         #-----------------------------------------------
         'perLvlUp': {'hp': 2, 'mana':2, 'res': 1},
         'perAttribute': {
-            'vita': {'hp': 1}, 
-            'magic': {'mana': 1}
+            'vita': "+1 health", 
+            'mag': "+1 mana"
         }
     },
     'sorc': {
@@ -48,8 +48,8 @@ stats = {
             #-----------------------------------------------
             'perLvl': {'hp': 1, 'mana':2, 'res': 1},
             'perAttribute': {
-                'vita': {'hp': 1}, 
-                'magic': {'mana': 2}
+                'vita': "+1 hp", 
+                'mag': "+2 mana"
             }},
     #-------------------- HELLFIRE CLASS --------------------
     #(a mettre à jour avec monk)

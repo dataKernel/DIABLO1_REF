@@ -7,18 +7,21 @@ def     get_stats():
     pass
 
 #-----------------PER_LEVEL & PER_ATTRIBUTE FUNCTIONS --------
-def     get_perAttribute_class(className:str):
-   data = stats[className]['perAttribute']
-   matrix = []
-   attributes, statsPerAttributes = tuple(data.keys()), tuple(data.values())
+def     get_perAttribute_class(className:str) -> list[tuple]:
+    data = stats[className]['perAttribute']
+    matrix = []
+    attributes, statsPerAttributes = [], tuple(data.values())
+    # we iterate and add the real value of the key from hashmap
+    for key in data:
+        attributes.append(hashmap['stats'][key])
+    matrix.append(tuple(attributes))
+    matrix.append(statsPerAttributes)
    
-   matrix.append(attributes)
-   matrix.append(statsPerAttributes)
-   
-   return(matrix)
+    return(matrix)
 
-def     get_perLvl(className:str):
-    pass
+# def     get_perAttribute():
+#     matrix = []
+#     attributes, statsPerAttributes = 
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
 def     get_baseStats_class(className:str) -> list[tuple]:
@@ -75,4 +78,4 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_perAttribute_class("war"))
+print(get_perAttribute_class("rog"))
