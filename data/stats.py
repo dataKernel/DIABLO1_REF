@@ -14,8 +14,8 @@ stats = {
         #-----------------------------------------------
         'perLvlUp': {'hp': 2, 'mana': 1, 'res': 1},
         'perAttribute': {
-            'vita': {'hp': 2}, 
-            'magic': {'mana': 1}
+            'vita': "+2 health",
+            'magic': "+1 mana"
         }
     },
     'rog': {
@@ -53,12 +53,4 @@ stats = {
             }},
     #-------------------- HELLFIRE CLASS --------------------
     #(a mettre à jour avec monk)
-}
-
-classes = {
-    'classes': ["Barbarian", "Warrior", "Rogue", "Sorcerer"],
-    
-    'war': {
-        'stats':stats['war']
-    }
 }
