@@ -7,23 +7,49 @@ def     get_stats():
     pass
 
 #-----------------PER_LEVEL & PER_ATTRIBUTE FUNCTIONS --------
-def     get_perAttribute_class(className:str) -> list[tuple]:
+def     get_stats_perAttribute_class(className:str) -> list[tuple]:
     data = stats[className]['perAttribute']
     matrix = []
-    attributes, statsPerAttributes = [], tuple(data.values())
+    attributes, statsPerAttributes = tuple(data.keys()), tuple(data.values())
     # we iterate and add the real value of the key from hashmap
-    for key in data:
-        attributes.append(hashmap['stats'][key])
     matrix.append(tuple(attributes))
     matrix.append(statsPerAttributes)
    
     return(matrix)
 
-# def     get_perAttribute():
-#     matrix = []
-#     attributes, statsPerAttributes = 
+def     get_stats_perAttribute() -> list[tuple]:
+    matrix = []
+    attributes, statsPerAttributes = ("vita", "mag"), []
+    print(f"check attributes: {attributes}")
+    
+    #we iterate trough each classes to get datas
+    for keyClass in stats:
+        statsPerAttributes.append(keyClass)
+        # values = list(stats[keyClass]['perAttribute'].values())
+        # statsPerAttributes.extend(values)# we add the the values from attributes after the class Name
+        for valAttributes in stats[keyClass]['perAttribute'].values():
+            print(f"check Attributes_class: {keyClass}:{valAttributes}")
+        
+        print(f"check values: {statsPerAttributes}")
+    
+    return(matrix)
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
+
+def     get_baseStats() -> list[tuple]:
+    matrix = []
+    baseStatsList, valList = tuple(hashmap['stats'].keys()), [] # Create 2 lists to store 2D info in matrix before tuple conversion 
+    for keyClass in stats:
+        valList.append(keyClass)
+        for valBaseStats in stats[keyClass]['baseStats'].values():
+            val = f"min: {valBaseStats['min']}, max: {valBaseStats['max']}"
+            valList.append(val)
+        matrix.append(tuple(valList))
+        valList = []# we reset the list
+    matrix.insert(0, baseStatsList)
+    
+    return(matrix)
+    
 def     get_baseStats_class(className:str) -> list[tuple]:
     data = stats[className]['baseStats']
     matrix = []
@@ -37,21 +63,6 @@ def     get_baseStats_class(className:str) -> list[tuple]:
     matrix.extend([baseStatsList, tuple(minVal), tuple(maxVal)])
     
     return(matrix)
-
-def     get_baseStats() -> list[tuple]:
-    matrix = []
-    baseStatsList, valList = tuple(hashmap['stats'].keys()), [] # Create 2 lists to store 2D info in matrix before tuple conversion 
-    for keyClass in stats:
-        valList.append(hashmap['class'][keyClass])
-        for valBaseStats in stats[keyClass]['baseStats'].values():
-            val = f"min: {valBaseStats['min']}, max: {valBaseStats['max']}"
-            valList.append(val)
-        matrix.append(tuple(valList))
-        valList = []# we reset the list
-    matrix.insert(0, baseStatsList)
-    
-    return(matrix)
-    
 #---------------------- RES FUNCTIONS ------------------------
 def     get_resists() -> list[tuple]:
     matrix = []
@@ -61,7 +72,7 @@ def     get_resists() -> list[tuple]:
         data = stats[keyClass]['res']# we get the class resist datas
         valList = list(data.values())
         # we add the className at the begining of valList
-        valList.insert(0, hashmap['class'][keyClass])
+        valList.insert(0, keyClass)
         # we add the elems and vals to matrix
         matrix.append(tuple(valList))
     matrix.insert(0, resList)
@@ -78,4 +89,4 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_perAttribute_class("rog"))
+print(get_stats_perAttribute())
