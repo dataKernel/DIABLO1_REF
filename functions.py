@@ -32,6 +32,15 @@ def     get_stats_perAttribute() -> list[tuple]:
     
     return(matrix)
 
+def     get_stats_perLvlUp(className:str) -> list[tuple]:
+    data = stats[className]['perLvlUp']
+    matrix = []
+    statsPerLvlUp, valStats = tuple(data.keys()), tuple(data.values())
+    
+    matrix.extend([statsPerLvlUp, valStats])
+    
+    return(matrix)
+
 #---------------------- BASE_STATS FUNCTIONS -----------------
 
 def     get_baseStats() -> list[tuple]:
@@ -88,4 +97,4 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_baseStats())
+print(get_stats_perLvlUp("war"))
