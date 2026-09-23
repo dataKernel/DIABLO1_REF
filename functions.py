@@ -19,18 +19,16 @@ def     get_stats_perAttribute_class(className:str) -> list[tuple]:
 
 def     get_stats_perAttribute() -> list[tuple]:
     matrix = []
-    attributes, statsPerAttributes = ("vita", "mag"), []
-    print(f"check attributes: {attributes}")
+    attributes, statsPerAttributes = tuple(stats['war']['perAttribute'].keys()), []
     
+    matrix.append(attributes)
     #we iterate trough each classes to get datas
     for keyClass in stats:
         statsPerAttributes.append(keyClass)
-        # values = list(stats[keyClass]['perAttribute'].values())
-        # statsPerAttributes.extend(values)# we add the the values from attributes after the class Name
-        for valAttributes in stats[keyClass]['perAttribute'].values():
-            print(f"check Attributes_class: {keyClass}:{valAttributes}")
-        
-        print(f"check values: {statsPerAttributes}")
+        values = list(stats[keyClass]['perAttribute'].values())
+        statsPerAttributes.extend(values)# we add the the values from attributes after the class Name
+        matrix.append(tuple(statsPerAttributes))
+        statsPerAttributes = []
     
     return(matrix)
 
@@ -38,7 +36,8 @@ def     get_stats_perAttribute() -> list[tuple]:
 
 def     get_baseStats() -> list[tuple]:
     matrix = []
-    baseStatsList, valList = tuple(hashmap['stats'].keys()), [] # Create 2 lists to store 2D info in matrix before tuple conversion 
+    baseStatsList, valList = tuple(stats['war']['baseStats'].keys()), [] # Create 2 lists to store 2D info in matrix before tuple conversion 
+    matrix.append(baseStatsList)
     for keyClass in stats:
         valList.append(keyClass)
         for valBaseStats in stats[keyClass]['baseStats'].values():
@@ -46,7 +45,7 @@ def     get_baseStats() -> list[tuple]:
             valList.append(val)
         matrix.append(tuple(valList))
         valList = []# we reset the list
-    matrix.insert(0, baseStatsList)
+    #matrix.insert(0, baseStatsList)
     
     return(matrix)
     
@@ -89,4 +88,4 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_stats_perAttribute())
+print(get_baseStats())
