@@ -1,5 +1,4 @@
 # --data imports--
-from data.common import hashmap
 from data.stats import stats
 # --global definition--
 
@@ -32,12 +31,18 @@ def     get_stats_perAttribute() -> list[tuple]:
     
     return(matrix)
 
-def     get_stats_perLvlUp(className:str) -> list[tuple]:
+def     get_stats_perLvlUp_class(className:str) -> list[tuple]:
     data = stats[className]['perLvlUp']
     matrix = []
     statsPerLvlUp, valStats = tuple(data.keys()), tuple(data.values())
     
     matrix.extend([statsPerLvlUp, valStats])
+    
+    return(matrix)
+
+def     get_stats_perLvlUp() -> list[tuple]:
+    matrix = []
+    
     
     return(matrix)
 
@@ -75,26 +80,26 @@ def     get_baseStats_class(className:str) -> list[tuple]:
 def     get_resists() -> list[tuple]:
     matrix = []
     # we get the resistances names (directly as tuple)
-    resList = tuple(stats['war']['res'].keys())
+    resists = tuple(stats['war']['res'].keys())
+    matrix.append(resists)# we add the resist list in the matrix
     for keyClass in stats:
-        data = stats[keyClass]['res']# we get the class resist datas
-        valList = list(data.values())
-        # we add the className at the begining of valList
-        valList.insert(0, keyClass)
-        # we add the elems and vals to matrix
-        matrix.append(tuple(valList))
-    matrix.insert(0, resList)
-    
+        data = stats[keyClass]['res']
+        
+        valsResists = [keyClass]
+        vals = list(data.values())# we get the resists values
+        valsResists.extend(vals)
+        matrix.append(tuple(valsResists))# tuple convertion
+  
     return(matrix)
 
 def     get_resists_class(className:str) -> list[tuple]:
-    resData = stats[className]['res']# we get the data for resistances
+    data = stats[className]['res']# we get the data for resistances
     matrix = []
     # Create 2 lists to store 2D infos
-    resList, valList = tuple(resData.keys()), tuple(resData.values())
-    matrix.append(resList)
-    matrix.append(valList)
+    resists, valResists = tuple(data.keys()), tuple(data.values())
+    matrix.append(resists)
+    matrix.append(valResists)
         
     return(matrix)
 
-print(get_stats_perLvlUp("war"))
+print(get_resists())
