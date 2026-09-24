@@ -47,19 +47,16 @@ def     get_stats_perLvlUp() -> list[tuple]:
     return(matrix)
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
-
 def     get_baseStats() -> list[tuple]:
     matrix = []
-    baseStatsList, valList = tuple(stats['war']['baseStats'].keys()), [] # Create 2 lists to store 2D info in matrix before tuple conversion 
-    matrix.append(baseStatsList)
+    baseStats = tuple(stats['war']['baseStats'].keys())# we get the baseStats names (directly as tuple)
+    matrix.append(baseStats)
     for keyClass in stats:
-        valList.append(keyClass)
-        for valBaseStats in stats[keyClass]['baseStats'].values():
-            val = f"min: {valBaseStats['min']}, max: {valBaseStats['max']}"
-            valList.append(val)
-        matrix.append(tuple(valList))
-        valList = []# we reset the list
-    #matrix.insert(0, baseStatsList)
+        valsBaseStats = [keyClass]
+        for vals in stats[keyClass]['baseStats'].values():
+            val = f"min: {vals['min']}, max: {vals['max']}"
+            valsBaseStats.append(val)
+        matrix.append(tuple(valsBaseStats))
     
     return(matrix)
     
@@ -67,15 +64,16 @@ def     get_baseStats_class(className:str) -> list[tuple]:
     data = stats[className]['baseStats']
     matrix = []
     # Create 3 lists to store 2D info before tuple conversion
-    baseStatsList, minVal, maxVal = tuple(data.keys()), ["min"], ["max"] 
+    baseStats, minVals, maxVals = tuple(data.keys()), ["min"], ["max"] 
     
     for val in data.values():
-        minVal.append(val['min'])
-        maxVal.append(val['max'])
+        minVals.append(val['min'])
+        maxVals.append(val['max'])
     # extend all lists at once for this function       
-    matrix.extend([baseStatsList, tuple(minVal), tuple(maxVal)])
+    matrix.extend([baseStats, tuple(minVals), tuple(maxVals)])
     
     return(matrix)
+
 #---------------------- RES FUNCTIONS ------------------------
 def     get_resists() -> list[tuple]:
     matrix = []
@@ -102,4 +100,4 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_resists())
+print(get_baseStats())
