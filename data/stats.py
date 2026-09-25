@@ -2,10 +2,18 @@ from typing import TypedDict
 
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 
-class minMax(TypedDict):
-    min: int
-    max: int
-
+#------TRUCT TYPE DICT -----------------------------------
+class statsData(TypedDict):
+    war: classStats
+    rog: classStats
+    sorc: classStats
+    
+class classStats(TypedDict):
+    baseStats: baseStats
+    res: res
+    perLvl: dict
+    perAttribute: dict
+    
 class baseStats(TypedDict):
     hp: minMax
     mana: minMax
@@ -13,28 +21,21 @@ class baseStats(TypedDict):
     dex: minMax
     mag: minMax
     vita: minMax
-
 class res(TypedDict):
     fire: int
     lightning: int
     magic: int
-
-class classStats(TypedDict):
-    baseStats: baseStats
-    res: res
-    perLvlUp: dict
-    perAttribute: dict
-
-class stats(TypedDict):
-    war: classStats
-    rog: classStats
-    sorc: classStats
+class minMax(TypedDict):
+    min: int
+    max: int
+#---------------------------------------------------------
 
 
+#---------DATA DICO --------------------------------------
 
 
-params: stats = {
-    #---------------- VANILLA CLASS ---------------------
+stats: statsData = {
+    #---------------- VANILLA CLASS ----------------------
     'war': {
         'baseStats': {
             'hp': {'min': 70, 'max': 316},
@@ -45,8 +46,7 @@ params: stats = {
             'vita': {'min': 25, 'max':100}
         },
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
-        #-----------------------------------------------
-        'perLvlUp': {'hp': 2, 'mana': 1, 'res': 1},
+        'perLvl': {'hp': 2, 'mana': 1, 'res': 1},
         'perAttribute': {
             'vita': "+2 health",
             'mag': "+1 mana"
@@ -62,8 +62,7 @@ params: stats = {
             'vita':{'min': 20, 'max':80}
         },
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
-        #-----------------------------------------------
-        'perLvlUp': {'hp': 2, 'mana':2, 'res': 1},
+        'perLvl': {'hp': 2, 'mana':2, 'res': 1},
         'perAttribute': {
             'vita': "+1 health", 
             'mag': "+1 mana"
@@ -79,8 +78,7 @@ params: stats = {
             'vita':{'min': 20, 'max':80}
             },
             'res': {'fire': 1, 'lightning': 1, 'magic': 1},
-            #-----------------------------------------------
-            'perLvlUp': {'hp': 1, 'mana':2, 'res': 1},
+            'perLvl': {'hp': 1, 'mana':2, 'res': 1},
             'perAttribute': {
                 'vita': "+1 hp", 
                 'mag': "+2 mana"

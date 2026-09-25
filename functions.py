@@ -1,7 +1,6 @@
 # --data imports--
-from data.stats import params
+from data.stats import stats
 # --global definition--
-
 def     get_stats():
     pass
 
