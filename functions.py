@@ -1,5 +1,5 @@
 # --data imports--
-from data.stats import stats
+from data.stats import params
 # --global definition--
 
 def     get_stats():
@@ -9,25 +9,24 @@ def     get_stats():
 def     get_stats_perAttribute_class(className:str) -> list[tuple]:
     data = stats[className]['perAttribute']
     matrix = []
-    attributes, statsPerAttributes = tuple(data.keys()), tuple(data.values())
+    attributes, valsAttributes = tuple(data.keys()), tuple(data.values())
     # we iterate and add the real value of the key from hashmap
     matrix.append(tuple(attributes))
-    matrix.append(statsPerAttributes)
+    matrix.append(valsAttributes)
    
     return(matrix)
 
 def     get_stats_perAttribute() -> list[tuple]:
     matrix = []
-    attributes, statsPerAttributes = tuple(stats['war']['perAttribute'].keys()), []
+    attributes = tuple(stats['war']['perAttribute'].keys())# we get the attributes names (directly as tuple)
     
     matrix.append(attributes)
     #we iterate trough each classes to get datas
     for keyClass in stats:
-        statsPerAttributes.append(keyClass)
+        valsAttributes = [keyClass]
         values = list(stats[keyClass]['perAttribute'].values())
-        statsPerAttributes.extend(values)# we add the the values from attributes after the class Name
-        matrix.append(tuple(statsPerAttributes))
-        statsPerAttributes = []
+        valsAttributes.extend(values)# we add the the values from attributes after the class Name
+        matrix.append(tuple(valsAttributes))
     
     return(matrix)
 
@@ -100,4 +99,4 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_baseStats())
+print(get_stats_perLvlUp_class("war"))

@@ -1,5 +1,39 @@
+from typing import TypedDict
+
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
-stats = {
+
+class minMax(TypedDict):
+    min: int
+    max: int
+
+class baseStats(TypedDict):
+    hp: minMax
+    mana: minMax
+    str: minMax
+    dex: minMax
+    mag: minMax
+    vita: minMax
+
+class res(TypedDict):
+    fire: int
+    lightning: int
+    magic: int
+
+class classStats(TypedDict):
+    baseStats: baseStats
+    res: res
+    perLvlUp: dict
+    perAttribute: dict
+
+class stats(TypedDict):
+    war: classStats
+    rog: classStats
+    sorc: classStats
+
+
+
+
+params: stats = {
     #---------------- VANILLA CLASS ---------------------
     'war': {
         'baseStats': {
@@ -46,7 +80,7 @@ stats = {
             },
             'res': {'fire': 1, 'lightning': 1, 'magic': 1},
             #-----------------------------------------------
-            'perLvl': {'hp': 1, 'mana':2, 'res': 1},
+            'perLvlUp': {'hp': 1, 'mana':2, 'res': 1},
             'perAttribute': {
                 'vita': "+1 hp", 
                 'mag': "+2 mana"
