@@ -29,13 +29,13 @@ def     get_stats_perAttribute() -> list[tuple]:
     
     return(matrix)
 
-def     get_stats_perLvlUp_class(className:str) -> list[tuple]:
-    data = stats[className]['perLvlUp']
+def     get_stats_perLvlUp_class(className: str) -> list[tuple]:
+    data = stats[className]['perLvl']
+    print(data['hpp'])
     matrix = []
     statsPerLvlUp, valStats = tuple(data.keys()), tuple(data.values())
     
     matrix.extend([statsPerLvlUp, valStats])
-    
     return(matrix)
 
 def     get_stats_perLvlUp() -> list[tuple]:

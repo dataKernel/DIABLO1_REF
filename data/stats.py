@@ -3,39 +3,47 @@ from typing import TypedDict
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 
 #------TRUCT TYPE DICT -----------------------------------
-class statsData(TypedDict):
-    war: classStats
-    rog: classStats
-    sorc: classStats
-    
-class classStats(TypedDict):
-    baseStats: baseStats
-    res: res
-    perLvl: dict
-    perAttribute: dict
-    
-class baseStats(TypedDict):
+#--- low layer definitions ---
+class   minMax(TypedDict):
+    min: int
+    max: int
+class   baseStats(TypedDict):
     hp: minMax
     mana: minMax
     str: minMax
     dex: minMax
     mag: minMax
     vita: minMax
-class res(TypedDict):
+
+class   res(TypedDict):
     fire: int
     lightning: int
     magic: int
-class minMax(TypedDict):
-    min: int
-    max: int
-#---------------------------------------------------------
 
+class   perLvl(TypedDict):
+    hp: int
+    mana: int
+    res: int
+
+class   perAttribute(TypedDict):
+    vita: str
+    mag: str
+
+#--- high layer definition ---
+class   classStats(TypedDict):
+    baseStats: baseStats
+    res: res
+    perLvl: perLvl
+    perAttribute: dict
+
+class   statsData(TypedDict):
+    war: classStats
+    rog: classStats
+    sorc: classStats
 
 #---------DATA DICO --------------------------------------
-
-
 stats: statsData = {
-    #---------------- VANILLA CLASS ----------------------
+#--- VANILLA CLASS ---
     'war': {
         'baseStats': {
             'hp': {'min': 70, 'max': 316},
