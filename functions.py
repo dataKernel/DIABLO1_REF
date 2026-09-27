@@ -12,7 +12,7 @@ def     get_stats_perAttribute_class(className:str) -> list[tuple]:
     # we iterate and add the real value of the key from hashmap
     matrix.append(tuple(attributes))
     matrix.append(valsAttributes)
-   
+    
     return(matrix)
 
 def     get_stats_perAttribute() -> list[tuple]:
@@ -29,20 +29,20 @@ def     get_stats_perAttribute() -> list[tuple]:
     
     return(matrix)
 
-def     get_stats_perLvlUp_class(className: str) -> list[tuple]:
+def     get_stats_perLvl_class(className: str) -> list[tuple]:
     data = stats[className]['perLvl']
-    print(data['hpp'])
     matrix = []
-    statsPerLvlUp, valStats = tuple(data.keys()), tuple(data.values())
+    statsPerLvl, valStats = tuple(data.keys()), tuple(data.values())
     
-    matrix.extend([statsPerLvlUp, valStats])
+    matrix.extend([statsPerLvl, valStats])
     return(matrix)
 
-def     get_stats_perLvlUp() -> list[tuple]:
+def     get_stats_perLvl() -> list[tuple]:
     matrix = []
     
     
     return(matrix)
+    
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
 def     get_baseStats() -> list[tuple]:
@@ -98,4 +98,25 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-print(get_stats_perLvlUp_class("war"))
+def     f_square(col:int, row:int):
+    #easy method (cell into string)
+    cellTop = "*----"
+    cellBot = "|    "
+    rowTop = ""
+    rowBot = ""
+    for i in range(0, col):
+        rowTop += cellTop
+        rowBot += cellBot
+    rowTop += '*'
+    rowBot += '|'
+    cell = rowTop + '\n' + rowBot
+    
+    for i in range(0, row):
+        print(cell)
+    print(rowTop)
+    # print("--- checking ---")
+    # print(f"rowTop:{rowTop}, rowBot:{rowBot}")
+    # print(f"cell:\n{cell}")
+    
+
+print(get_stats_perLvl_class("rog"))
