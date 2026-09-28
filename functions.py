@@ -41,8 +41,15 @@ def     get_stats_perLvl() -> list[tuple]:
     matrix = []
     
     
-    return(matrix)
+    statsPerLvl = tuple(stats['war']['perLvl'].keys())
+    matrix.append(statsPerLvl)
+    for keyClass in stats:
+        data = stats[keyClass]['perLvl']
+        valsStats = [keyClass]
+        valsStats.extend(data.values())
+        matrix.append(tuple(valsStats))
     
+    return(matrix)
 
 #---------------------- BASE_STATS FUNCTIONS -----------------
 def     get_baseStats() -> list[tuple]:
@@ -119,4 +126,4 @@ def     f_square(col:int, row:int):
     # print(f"cell:\n{cell}")
     
 
-print(get_stats_perLvl_class("rog"))
+print(get_stats_perLvl())
