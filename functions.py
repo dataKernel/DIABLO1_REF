@@ -124,6 +124,15 @@ def     f_square(col:int, row:int):
     # print("--- checking ---")
     # print(f"rowTop:{rowTop}, rowBot:{rowBot}")
     # print(f"cell:\n{cell}")
-    
 
-print(get_stats_perLvl())
+def     check_maxStrLen_in_array(array) -> int:
+    maxStr = 0
+    
+    for elem in array:
+        if len(elem) > maxStr:
+            maxStr = len(elem)
+    
+    return(maxStr)
+
+matrix = get_resists_class("war")
+print(check_maxStrLen_in_array(matrix[0]))
