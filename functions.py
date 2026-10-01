@@ -115,14 +115,12 @@ def     f_square(matrix:list[tuple]):
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
     
-    for elem in array:
-        sizeElem = len(str(elem))# we typecast explicitly into str to check the size of any types given 
-        if sizeElem > maxStr:
-            sizeElem = len(str(elem))
+    for rows in array:
+        for cols in rows:
+            sizeElem = len(str(cols))# we typecast explicitly into str to check the size of any types given 
+            if sizeElem > maxStr:
+                maxStr = sizeElem
     
     return(maxStr)
 
-
 matrix = get_resists_class("war")
-
-check_maxStrLen_in_array(matrix)
