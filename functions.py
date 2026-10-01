@@ -105,34 +105,24 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-def     f_square(col:int, row:int):
-    #easy method (cell into string)
-    cellTop = "*----"
-    cellBot = "|    "
-    rowTop = ""
-    rowBot = ""
-    for i in range(0, col):
-        rowTop += cellTop
-        rowBot += cellBot
-    rowTop += '*'
-    rowBot += '|'
-    cell = rowTop + '\n' + rowBot
-    
-    for i in range(0, row):
-        print(cell)
-    print(rowTop)
+def     f_square(matrix:list[tuple]):
+   
+    pass
     # print("--- checking ---")
     # print(f"rowTop:{rowTop}, rowBot:{rowBot}")
     # print(f"cell:\n{cell}")
 
-def     check_maxStrLen_in_array(array) -> int:
+def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
     
     for elem in array:
-        if len(elem) > maxStr:
-            maxStr = len(elem)
+        sizeElem = len(str(elem))# we typecast explicitly into str to check the size of any types given 
+        if sizeElem > maxStr:
+            sizeElem = len(str(elem))
     
     return(maxStr)
 
+
 matrix = get_resists_class("war")
-print(check_maxStrLen_in_array(matrix[0]))
+
+check_maxStrLen_in_array(matrix)
