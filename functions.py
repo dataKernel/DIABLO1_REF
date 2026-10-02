@@ -105,12 +105,18 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-def     f_square(matrix:list[tuple]):
-   
+def     draw_grid(matrix:list[tuple]) -> None:
+    header = ""# we get the top of the grid first (top, mid, bot)
+    cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (ascii sp)
+    topCell = '+' + '-' * cellLength
+    print(len(topCell))
+    print(topCell)
+    for rows in matrix:
+        for cols in rows:
+            pass
+    
+    
     pass
-    # print("--- checking ---")
-    # print(f"rowTop:{rowTop}, rowBot:{rowBot}")
-    # print(f"cell:\n{cell}")
 
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
@@ -124,3 +130,5 @@ def     check_maxStrLen_in_array(array: list | tuple) -> int:
     return(maxStr)
 
 matrix = get_resists_class("war")
+print(matrix)
+draw_grid(matrix)
