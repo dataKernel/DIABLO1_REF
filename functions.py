@@ -108,15 +108,24 @@ def     get_resists_class(className:str) -> list[tuple]:
 def     draw_grid(matrix:list[tuple]) -> None:
     header = ""# we get the top of the grid first (top, mid, bot)
     cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (ascii sp)
-    topCell = '+' + '-' * cellLength
-    print(len(topCell))
-    print(topCell)
+    topCell = ""
+    botCell = ""
+    i = 0
+ 
     for rows in matrix:
         for cols in rows:
-            pass
+            if i == 0:
+                topCell += '+' + '-' * cellLength 
+                botCell += f"|{cols:^{cellLength}}"
+            else:
+                pass
+        i += 1
+    topCell += "+\n"
+    botCell += "|\n"
+    header += topCell + botCell + topCell
     
+    print(header)
     
-    pass
 
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
