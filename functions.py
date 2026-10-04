@@ -127,6 +127,7 @@ def     draw_grid(matrix:list[tuple]) -> None:
     print(header)
     
 
+#FIXME: on veut construire la grid en 2 étapes topRow et botRow, et ajouter une condi sur i de 2 (3eme ite) pour modif l'affichage de la ligne
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
     
