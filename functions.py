@@ -106,25 +106,34 @@ def     get_resists_class(className:str) -> list[tuple]:
     return(matrix)
 
 def     draw_grid(matrix:list[tuple]) -> None:
-    header = ""# we get the top of the grid first (top, mid, bot)
     cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (ascii sp)
-    topCell = ""
-    botCell = ""
     i = 0
- 
-    for rows in matrix:
-        for cols in rows:
-            if i == 0:
-                topCell += '+' + '-' * cellLength 
-                botCell += f"|{cols:^{cellLength}}"
-            else:
-                pass
-        i += 1
-    topCell += "+\n"
-    botCell += "|\n"
-    header += topCell + botCell + topCell
     
-    print(header)
+    #FIXME: ajouter un check plus large pour vérifier Falsy
+    if not matrix:
+        return
+    
+    for rows in matrix:
+        topRow = '+'
+        botRow = '|'
+        row = ""
+        temp = ""
+        for cols in rows:
+            if i < 2:
+                topRow += '-' * cellLength
+            else:
+                temp += '-' * cellLength 
+                topRow += temp
+            botRow += f"|{cols:^{cellLength}}"
+        topRow += "+\n"
+        botRow += '|'
+        row = topRow + botRow
+        print(row)
+        i += 1
+    lastLine = '+' + ('-' * cellLength * len(matrix[1]))
+    lastLine += '-' * len(matrix[1])
+    
+    print(lastLine)
     
 
 #FIXME: on veut construire la grid en 2 étapes topRow et botRow, et ajouter une condi sur i de 2 (3eme ite) pour modif l'affichage de la ligne
@@ -140,5 +149,7 @@ def     check_maxStrLen_in_array(array: list | tuple) -> int:
     return(maxStr)
 
 matrix = get_resists_class("war")
+matrix.append((2, 2, 2))
+matrix.append((3, 3, 3))
 print(matrix)
 draw_grid(matrix)
