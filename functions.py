@@ -116,20 +116,17 @@ def     draw_grid(matrix:list[tuple]) -> None:
     for rows in matrix:
         topRow = '+'
         botRow = '|'
-        row = ""
-        temp = ""
         for cols in rows:
             if i < 2:
-                topRow += '-' * cellLength
+                topRow +=  '-' * cellLength + '+'
             else:
-                temp += '-' * cellLength 
-                topRow += temp
-            botRow += f"|{cols:^{cellLength}}"
-        topRow += "+\n"
-        botRow += '|'
+                topRow += '-' * (cellLength) + '-'
+            botRow += f"{cols:^{cellLength}}|"
+        topRow += "\n"
         row = topRow + botRow
         print(row)
         i += 1
+    #FIXME: voir pour faire quelque chose de plus simple..
     lastLine = '+' + ('-' * cellLength * len(matrix[1]))
     lastLine += '-' * len(matrix[1])
     
