@@ -107,9 +107,7 @@ def     get_resists_class(className:str) -> list[tuple]:
 
 def     draw_grid(matrix:list[tuple]) -> None:
     cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (ascii sp)
-    i = 0
     
-    #FIXME: ajouter un check plus large pour vérifier Falsy
     if not matrix:
         return
     
@@ -117,21 +115,12 @@ def     draw_grid(matrix:list[tuple]) -> None:
         topRow = '+'
         botRow = '|'
         for cols in rows:
-            if i < 2:
-                topRow +=  '-' * cellLength + '+'
-            else:
-                topRow += '-' * (cellLength) + '-'
+            topRow +=  '-' * cellLength + '+'
             botRow += f"{cols:^{cellLength}}|"
         topRow += "\n"
         row = topRow + botRow
         print(row)
-        i += 1
-    #FIXME: voir pour faire quelque chose de plus simple..
-    lastLine = '+' + ('-' * cellLength * len(matrix[1]))
-    lastLine += '-' * len(matrix[1])
-    
-    print(lastLine)
-    
+    print(topRow)
 
 #FIXME: on veut construire la grid en 2 étapes topRow et botRow, et ajouter une condi sur i de 2 (3eme ite) pour modif l'affichage de la ligne
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
