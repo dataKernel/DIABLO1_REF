@@ -107,7 +107,6 @@ def     get_resists_class(className:str) -> list[tuple]:
 
 def     draw_grid(matrix:list[tuple]) -> None:
     cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (ascii sp)
-    
     if not matrix:
         return
     
@@ -120,9 +119,9 @@ def     draw_grid(matrix:list[tuple]) -> None:
         topRow += "\n"
         row = topRow + botRow
         print(row)
-    print(topRow)
-
-#FIXME: on veut construire la grid en 2 étapes topRow et botRow, et ajouter une condi sur i de 2 (3eme ite) pour modif l'affichage de la ligne
+    #we print the last line
+    print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
+    
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
     
