@@ -1,3 +1,5 @@
+from typing import TypedDict
+
 #------------------------ HASHMAP -----------------------
 hashmap = {
     'class':
@@ -13,7 +15,30 @@ hashmap = {
         'mana': "Mana",
         'str': "Strength",
         'dex': "Dexterity",
-        'mag': "Magic",
         'vita': "Vitality"
     }
+}
+
+emojis = {
+    'class':
+    {
+        'war': '⚔️',
+        'rog': '🏹',
+        'sorc': '🔮'
+    },
+    'stats':
+    {
+        'hp': '❤️',
+        'mana': '💧',
+        'str': '💪',
+        'dex': '🎯',
+        'magic': '✨',
+        'vita': '🫀'
+    },
+    'resists':
+    { 
+        'fire': '🔥', 
+        'lightning': '⚡️', 
+        'magic': '✨'
+     },
 }
