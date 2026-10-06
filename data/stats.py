@@ -12,7 +12,7 @@ class   baseStats(TypedDict):
     mana: minMax
     str: minMax
     dex: minMax
-    mag: minMax
+    magic: minMax
     vita: minMax
 
 class   res(TypedDict):
@@ -27,7 +27,7 @@ class   perLvl(TypedDict):
 
 class   perAttribute(TypedDict):
     vita: str
-    mag: str
+    magic: str
 
 #--- high layer definition ---
 class   classStats(TypedDict):
@@ -50,7 +50,7 @@ stats: statsData = {
             'mana': {'min': 10, 'max': 50},
             'str': {'min': 30, 'max': 250},
             'dex': {'min': 20, 'max': 60},
-            'mag': {'min': 10, 'max': 99},
+            'magic': {'min': 10, 'max': 99},
             'vita': {'min': 25, 'max':100}
         },
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
@@ -66,14 +66,14 @@ stats: statsData = {
             'mana': {'min': 22, 'max': 173},
             'str': {'min': 20, 'max': 55},
             'dex': {'min': 30, 'max': 250},
-            'mag':{'min': 15, 'max': 70},
+            'magic':{'min': 15, 'max': 70},
             'vita':{'min': 20, 'max':80}
         },
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
         'perLvl': {'hp': 2, 'mana':2, 'res': 1},
         'perAttribute': {
             'vita': "+1 health", 
-            'mag': "+1 mana"
+            'magic': "+1 mana"
         }
     },
     'sorc': {
@@ -82,14 +82,14 @@ stats: statsData = {
             'mana': {'min': 70, 'max': 596},
             'str': {'min': 15, 'max': 45},
             'dex': {'min': 15, 'max': 85},
-            'mag':{'min': 35, 'max': 250},  
+            'magic':{'min': 35, 'max': 250},  
             'vita':{'min': 20, 'max':80}
             },
             'res': {'fire': 1, 'lightning': 1, 'magic': 1},
             'perLvl': {'hp': 1, 'mana':2, 'res': 1},
             'perAttribute': {
                 'vita': "+1 hp", 
-                'mag': "+2 mana"
+                'magic': "+2 mana"
             }},
     #-------------------- HELLFIRE CLASS --------------------
     #(a mettre à jour avec monk)
