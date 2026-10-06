@@ -1,10 +1,13 @@
-# --data imports--
+#-- global import --
+from wcwidth import wcswidth
+# -- data imports --
 from data.stats import stats
-# --global definition--
+from data.common import hashmap
+# -- global definition --
 def     get_stats():
     pass
 
-#-----------------PER_LEVEL & PER_ATTRIBUTE FUNCTIONS --------
+#----------------- PER_LEVEL & PER_ATTRIBUTE FUNCTIONS --------
 def     get_stats_perAttribute_class(className:str) -> list[tuple]:
     data = stats[className]['perAttribute']
     matrix = []
@@ -106,19 +109,22 @@ def     get_resists_class(className:str) -> list[tuple]:
     return(matrix)
 
 def     draw_grid(matrix:list[tuple]) -> None:
-    cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (ascii sp)
+    cellLength = check_maxStrLen_in_array(matrix) + 3# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' and +1 for the emoji
     if not matrix:
         return
-    
+    i = 0 # we want to check when we we get the first line to add emojis
     for rows in matrix:
         topRow = '+'
         botRow = '|'
         for cols in rows:
+            if i == 0:
+                cols = emojis['resists'][cols] + cols
             topRow +=  '-' * cellLength + '+'
             botRow += f"{cols:^{cellLength}}|"
         topRow += "\n"
         row = topRow + botRow
         print(row)
+        i += 1
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
     
@@ -127,7 +133,7 @@ def     check_maxStrLen_in_array(array: list | tuple) -> int:
     
     for rows in array:
         for cols in rows:
-            sizeElem = len(str(cols))# we typecast explicitly into str to check the size of any types given 
+            sizeElem = wcswidth(str(cols))# we typecast explicitly into str to check the size of any types given 
             if sizeElem > maxStr:
                 maxStr = sizeElem
     
@@ -137,4 +143,7 @@ matrix = get_resists_class("war")
 matrix.append((2, 2, 2))
 matrix.append((3, 3, 3))
 print(matrix)
-draw_grid(matrix)
+# draw_grid(matrix)
+
+for elems in hashmap['resists'].values():
+    print(f"check:{elems}")
