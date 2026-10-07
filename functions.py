@@ -1,5 +1,5 @@
 #-- global import --
-from wcwidth import wcswidth
+
 # -- data imports --
 from data.stats import stats
 from data.common import hashmap
@@ -118,9 +118,10 @@ def     draw_grid(matrix:list[tuple]) -> None:
         botRow = '|'
         for cols in rows:
             if i == 0:
-                cols = emojis['resists'][cols] + cols
-            topRow +=  '-' * cellLength + '+'
-            botRow += f"{cols:^{cellLength}}|"
+                botRow += f"{hashmap[cols]:^{cellLength}}|"
+            else:
+                topRow +=  '-' * cellLength + '+'
+                botRow += f"{cols:^{cellLength}}|"
         topRow += "\n"
         row = topRow + botRow
         print(row)
@@ -133,7 +134,7 @@ def     check_maxStrLen_in_array(array: list | tuple) -> int:
     
     for rows in array:
         for cols in rows:
-            sizeElem = wcswidth(str(cols))# we typecast explicitly into str to check the size of any types given 
+            sizeElem = len(str(cols))# we typecast explicitly into str to check the size of any types given 
             if sizeElem > maxStr:
                 maxStr = sizeElem
     
@@ -143,7 +144,4 @@ matrix = get_resists_class("war")
 matrix.append((2, 2, 2))
 matrix.append((3, 3, 3))
 print(matrix)
-# draw_grid(matrix)
-
-for elems in hashmap['resists'].values():
-    print(f"check:{elems}")
+draw_grid(matrix)
