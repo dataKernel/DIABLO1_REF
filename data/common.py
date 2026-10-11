@@ -4,7 +4,7 @@ hashmap = {
     #-- CLASSES --
     'war': "Warrior",
     'rog': "Rogue",
-    'sorc': "\033[38;5;27mSorcerer\033[0m",
+    'sorc': "Sorcerer",
     'barb': "\033[38;5;124mBarbarian\033[0m",
     #-- BASE STATS --
     'hp': "Health",
@@ -21,8 +21,11 @@ hashmap = {
 colors = {
     'war': "\033[38;5;130m",
     'rog': "\033[38;5;34m",
-    
-    'reset': "\033[0m"
+    'sorc': "\033[38;5;27m",
+    'reset': "\033[0m",
+    'fire': "\033[38;5;196m",
+    'lightning': "\033[38;5;226m",
+    'magic': "\033[38;5;129m"
 }
 
 emojis = {
