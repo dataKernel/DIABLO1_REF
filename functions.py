@@ -3,6 +3,7 @@
 # -- data imports --
 from data.stats import stats
 from data.common import hashmap
+from data.common import colors
 # -- global definition --
 def     get_stats():
     pass
@@ -108,27 +109,6 @@ def     get_resists_class(className:str) -> list[tuple]:
         
     return(matrix)
 
-def     draw_grid(matrix:list[tuple]) -> None:
-    cellLength = check_maxStrLen_in_array(matrix) + 3# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' and +1 for the emoji
-    if not matrix:
-        return
-    i = 0 # we want to check when we we get the first line to add emojis
-    for rows in matrix:
-        topRow = '+'
-        botRow = '|'
-        for cols in rows:
-            if i == 0:
-                botRow += f"{hashmap[cols]:^{cellLength}}|"
-            else:
-                topRow +=  '-' * cellLength + '+'
-                botRow += f"{cols:^{cellLength}}|"
-        topRow += "\n"
-        row = topRow + botRow
-        print(row)
-        i += 1
-    #we print the last line
-    print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
-    
 def     check_maxStrLen_in_array(array: list | tuple) -> int:
     maxStr = 0
     
@@ -139,6 +119,27 @@ def     check_maxStrLen_in_array(array: list | tuple) -> int:
                 maxStr = sizeElem
     
     return(maxStr)
+
+def     draw_grid(matrix:list[tuple]) -> None:
+    cellLength = check_maxStrLen_in_array(matrix) + 3# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' and +1 for the emoji
+    if not matrix:
+        return
+    i = 0 # we want to check when we we get the first line to add emojis
+    for rows in matrix:
+        topRow = '+'
+        botRow = '|'
+        for cols in rows:
+            if i == 0:
+                botRow += colors[cols] + f"{hashmap[cols]:^{cellLength}}|"
+            else:
+                topRow +=  '-' * cellLength + '+'
+                botRow += colors[cols] + f"{cols:^{cellLength}}|"
+        topRow += "\n"
+        row = topRow + botRow
+        print(row)
+        i += 1
+    #we print the last line
+    print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
 
 matrix = get_resists_class("war")
 matrix.append((2, 2, 2))

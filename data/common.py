@@ -19,13 +19,15 @@ hashmap = {
 }
 
 colors = {
+    #-- CLASSES --
     'war': "\033[38;5;130m",
     'rog': "\033[38;5;34m",
     'sorc': "\033[38;5;27m",
-    'reset': "\033[0m",
+    #-- RESISTS --
     'fire': "\033[38;5;196m",
     'lightning': "\033[38;5;226m",
-    'magic': "\033[38;5;129m"
+    'magic': "\033[38;5;129m",
+    'reset': "\033[0m",
 }
 
 emojis = {
