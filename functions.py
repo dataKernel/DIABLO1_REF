@@ -129,11 +129,12 @@ def     draw_grid(matrix:list[tuple]) -> None:
         topRow = '+'
         botRow = '|'
         for cols in rows:
+            topRow +=  '-' * cellLength + '+'
             if i == 0:
-                botRow += colors[cols] + f"{hashmap[cols]:^{cellLength}}|"
+                centered =  f"{cols:^{cellLength}}"
+                botRow += colors[cols] + centered + colors['reset'] + '|'
             else:
-                topRow +=  '-' * cellLength + '+'
-                botRow += colors[cols] + f"{cols:^{cellLength}}|"
+                botRow += f"{cols:^{cellLength}}|"
         topRow += "\n"
         row = topRow + botRow
         print(row)
