@@ -147,3 +147,5 @@ matrix.append((2, 2, 2))
 matrix.append((3, 3, 3))
 print(matrix)
 draw_grid(matrix)
+
+print("test")
