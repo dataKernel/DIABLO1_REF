@@ -28,6 +28,7 @@ colors = {
     'lightning': "\033[38;5;226m",
     'magic': "\033[38;5;129m",
     'reset': "\033[0m",
+    #avoir ici une couleur de donnée et laisser le blanc de base pour la grid
 }
 
 emojis = {

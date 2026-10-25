@@ -142,10 +142,7 @@ def     draw_grid(matrix:list[tuple]) -> None:
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
 
-matrix = get_resists_class("war")
-matrix.append((2, 2, 2))
-matrix.append((3, 3, 3))
+matrix = get_baseStats_class("war")
 print(matrix)
 draw_grid(matrix)
 
-print("test")
