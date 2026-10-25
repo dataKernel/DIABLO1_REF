@@ -1,4 +1,10 @@
 from typing import TypedDict
+
+#------ STRUCT TYPED DICT -----------------------------------
+#--- low layer definitions ---
+class   colors(TypedDict):
+    
+
 #------------------------ HASHMAP -----------------------
 hashmap = {
     #-- CLASSES --
@@ -28,7 +34,13 @@ colors = {
     'lightning': "\033[38;5;226m",
     'magic': "\033[38;5;129m",
     'reset': "\033[0m",
-    #avoir ici une couleur de donnée et laisser le blanc de base pour la grid
+    #-- BASE STATS --
+    'hp': "\033[38;5;196m",
+    'mana': "\033[38;5;39m",
+    'str': "\033[38;5;130m",
+    'dex': "\033[38;5;46m",
+    'magic': "\033[38;5;201m",
+    'vita': "\033[38;5;220m"
 }
 
 emojis = {

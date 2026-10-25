@@ -2,7 +2,7 @@ from typing import TypedDict
 
 #perLvlUp est le nombre de points gagné par niveau (les resistances sont de 1% pour chacune d'entre elles)
 
-#------TRUCT TYPE DICT -----------------------------------
+#------ STRUCT TYPED DICT -----------------------------------
 #--- low layer definitions ---
 class   minMax(TypedDict):
     min: int
