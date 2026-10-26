@@ -3,18 +3,22 @@ from typing import TypedDict
 #------ STRUCT TYPED DICT -----------------------------------
 #--- low layer definitions ---
 class   colorsData(TypedDict):
+    #-- CLASS --
     war: str
     rog: str
     sorc: str
-    fire: str
-    lightning: str
-    magic: str
+    #-- BASE STATS --
     hp: str
     mana: str
     str: str
     dex: str
     magic: str
     vita: str
+    res: str
+    #-- RES --
+    fire: str
+    lightning: str
+    #--------------------------
     reset: str
 
 #------------------------ HASHMAP -----------------------
@@ -23,7 +27,7 @@ hashmap = {
     'war': "Warrior",
     'rog': "Rogue",
     'sorc': "Sorcerer",
-    'barb': "\033[38;5;124mBarbarian\033[0m",
+    'barb': "Barbarian",
     #-- BASE STATS --
     'hp': "Health",
     'mana': "Mana",
@@ -40,19 +44,22 @@ hashmap = {
 colors: colorsData = {
     #-- CLASSES --
     'war': "\033[38;5;130m",
-    'rog': "\033[38;5;34m",
-    'sorc': "\033[38;5;27m",
+    'rog': "\033[38;5;40m",
+    'sorc': "\033[38;5;129m",
+
+    #-- BASE STATS --
+    'hp': "\033[38;5;196m",
+    'mana': "\033[38;5;27m",
+    'str': "\033[38;5;130m",
+    'dex': "\033[38;5;40m",
+    'magic': "\033[38;5;129m",
+    'vita': "\033[38;5;208m",
+    'res': "\033[38;5;129m",
+
     #-- RESISTS --
     'fire': "\033[38;5;196m",
     'lightning': "\033[38;5;226m",
-    'magic': "\033[38;5;129m",
-    #-- BASE STATS --
-    'hp': "\033[38;5;196m",
-    'mana': "\033[38;5;39m",
-    'str': "\033[38;5;130m",
-    'dex': "\033[38;5;46m",
-    'magic': "\033[38;5;201m",
-    'vita': "\033[38;5;220m",
+
     #-- RESET --
     'reset': "\033[0m"
 }
