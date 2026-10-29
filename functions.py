@@ -125,25 +125,28 @@ def     draw_grid(matrix:list[tuple]) -> None:
     if not matrix:
         return
     i = 0 # we want to check when we we get the first row to get colors
-    
+    stockColor = []
     for rows in matrix:
         topRow = '+'
         botRow = '|'
+        j = 0
         for cols in rows:
             topRow +=  '-' * cellLength + '+'
             #on test pour le moment la premiere row, mais on va stocker en plus les couleurs qu'on utilisera pour les rows suivantes, ce test est désigné pour une matrix sous la rpz [1D]
             if i == 0:
                 centered =  f"{cols:^{cellLength}}"
                 botRow += colors[cols] + centered + colors['reset'] + '|'
-                
+                stockColor.append(colors[cols]) 
             else:
-                botRow += f"{cols:^{cellLength}}|"
+                botRow += stockColor[j] + f"{cols:^{cellLength}}{colors['reset']}|"
+            j += 1
         topRow += "\n"
         row = topRow + botRow
         print(row)
         i += 1
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
+    print(f"check stockColor:{stockColor}")
 
 matrix = get_resists_class("war")
 draw_grid(matrix)
