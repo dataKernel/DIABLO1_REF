@@ -59,6 +59,7 @@ colors: colorsData = {
     #-- RESISTS --
     'fire': "\033[38;5;196m",
     'lightning': "\033[38;5;226m",
+    # /!\: on a la clef magic qui correspond à la même couleur pour la stat et la couleur
 
     #-- RESET --
     'reset': "\033[0m"
