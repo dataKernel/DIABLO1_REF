@@ -56,8 +56,8 @@ stats: statsData = {
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
         'perLvl': {'hp': 2, 'mana': 1, 'res': 1},
         'perAttribute': {
-            'vita': "+2 health",
-            'mag': "+1 mana"
+            'vita': "+2 Health",
+            'mag': "+1 Mana"
         }
     },
     'rog': {
@@ -72,8 +72,8 @@ stats: statsData = {
         'res': {'fire': 1, 'lightning': 1, 'magic': 1},
         'perLvl': {'hp': 2, 'mana':2, 'res': 1},
         'perAttribute': {
-            'vita': "+1 health", 
-            'magic': "+1 mana"
+            'vita': "+1 Health", 
+            'magic': "+1 Mana"
         }
     },
     'sorc': {
@@ -88,9 +88,7 @@ stats: statsData = {
             'res': {'fire': 1, 'lightning': 1, 'magic': 1},
             'perLvl': {'hp': 1, 'mana':2, 'res': 1},
             'perAttribute': {
-                'vita': "+1 hp", 
-                'magic': "+2 mana"
+                'vita': "+1 Health", 
+                'magic': "+2 Mana"
             }},
-    #-------------------- HELLFIRE CLASS --------------------
-    #(a mettre à jour avec monk)
 }

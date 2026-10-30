@@ -148,5 +148,7 @@ def     draw_grid(matrix:list[tuple]) -> None:
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
     print(f"check stockColor:{colomnColors}")
 
-matrix = get_resists_class("war")
+matrix = get_stats_perLvl_class("rog")
+draw_grid(matrix)
+matrix = get_resists_class("rog")
 draw_grid(matrix)
