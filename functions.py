@@ -126,11 +126,10 @@ def     draw_grid(matrix:list[tuple]) -> None:
         return
     rowIndex = 0 # we want to check when we we get the first row to get colors
     colomnColors = []
-    for rows in matrix:
+    for rowIndex, rows in enumerate(matrix):
         topRow = '+'
         botRow = '|'
-        indexColColors = 0
-        for cell in rows:
+        for indexColColors, cell in enumerate(rows):
             topRow +=  '-' * cellLength + '+'
             #on test pour le moment la premiere row, mais on va stocker en plus les couleurs qu'on utilisera pour les rows su                              ivantes, ce test est désigné pour une matrix sous la rpz [1D]
             if rowIndex == 0:
@@ -139,11 +138,9 @@ def     draw_grid(matrix:list[tuple]) -> None:
                 colomnColors.append(colors[cell]) #on ajoute les couleurs des cols pour les réutiliser
             else:
                 botRow += colomnColors[indexColColors] + f"{cell:^{cellLength}}{colors['reset']}|"
-            indexColColors += 1
         topRow += "\n"
         row = topRow + botRow
         print(row)        
-        rowIndex += 1
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
     print(f"check stockColor:{colomnColors}")
