@@ -124,31 +124,30 @@ def     draw_grid(matrix:list[tuple]) -> None:
     cellLength = check_maxStrLen_in_array(matrix) + 2# we check the max str size in the matrix + 2 for init 'sp' and end 'sp' (and +1 for the emoji: need to implement this)
     if not matrix:
         return
-    i = 0 # we want to check when we we get the first row to get colors
+    rowIndex = 0 # we want to check when we we get the first row to get colors
     colomnColors = []
     for rows in matrix:
         topRow = '+'
         botRow = '|'
-        j = 0
+        indexColColors = 0
         for cell in rows:
             topRow +=  '-' * cellLength + '+'
             #on test pour le moment la premiere row, mais on va stocker en plus les couleurs qu'on utilisera pour les rows su                              ivantes, ce test est désigné pour une matrix sous la rpz [1D]
-            if i == 0:
+            if rowIndex == 0:
                 centered =  f"{cell:^{cellLength}}"
                 botRow += colors[cell] + centered + colors['reset'] + '|'
-                colomnColors.append(colors[cell]) 
+                colomnColors.append(colors[cell]) #on ajoute les couleurs des cols pour les réutiliser
             else:
-                botRow += colomnColors[j] + f"{cell:^{cellLength}}{colors['reset']}|"
-            j += 1
+                botRow += colomnColors[indexColColors] + f"{cell:^{cellLength}}{colors['reset']}|"
+            indexColColors += 1
         topRow += "\n"
         row = topRow + botRow
-        print(row)
-        i += 1
+        print(row)        
+        rowIndex += 1
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
     print(f"check stockColor:{colomnColors}")
 
-matrix = get_stats_perLvl_class("rog")
-draw_grid(matrix)
-matrix = get_resists_class("rog")
+matrix = get_resists_class("war")
+# matrix = get_baseStats_class("rog")
 draw_grid(matrix)
