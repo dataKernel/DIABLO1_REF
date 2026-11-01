@@ -130,8 +130,16 @@ def     draw_grid(matrix:list[tuple]) -> None:
         columnColors = []
         is1D = True    
     for rowIndex, row in enumerate(matrix):
-        topRow = '+'
-        botRow = '|'
+        if is1D:
+            topRow = '+'
+            botRow = '|'
+        else:
+            if rowIndex == 0:
+                topRow = ' ' * (cellLength + 1) + '+'
+                botRow = ' ' * (cellLength + 1) + '|'
+            else:
+                topRow = '+'
+                botRow = '|'
         for indexColColors, cell in enumerate(row):
             topRow += '-' * cellLength + '+'
             #on test pour le moment la premiere row, mais on va stocker en plus les couleurs qu'on utilisera pour les rows suivantes, ce test est désigné pour une matrix sous la rpz [1D]
@@ -144,7 +152,7 @@ def     draw_grid(matrix:list[tuple]) -> None:
                 if is1D:
                     botRow += columnColors[indexColColors] + f"{cell:^{cellLength}}{colors['reset']}|"
                 else:
-                    if rowIndex == 1 and indexColColors == 0:
+                    if indexColColors == 0:
                         rowColor = colors[cell]
                     botRow += rowColor + f"{cell:^{cellLength}}{colors['reset']}|"
         topRow += "\n"
@@ -153,6 +161,6 @@ def     draw_grid(matrix:list[tuple]) -> None:
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
 
-matrix = get_resists()
+matrix = get_baseStats_class("rog")
 # matrix = get_baseStats_class("rog")
 draw_grid(matrix)
