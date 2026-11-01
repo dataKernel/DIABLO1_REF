@@ -124,26 +124,35 @@ def     draw_grid(matrix:list[tuple]) -> None:
     if not matrix:
         return
     rowIndex = 0 # we want to check when we we get the first row to get colors
-    columnColors = []
+    if isinstance(matrix[1][0], str): #checking if matrix is 1D or 2D
+        is1D = False
+    else:
+        columnColors = []
+        is1D = True    
     for rowIndex, row in enumerate(matrix):
         topRow = '+'
         botRow = '|'
         for indexColColors, cell in enumerate(row):
             topRow += '-' * cellLength + '+'
-            #on test pour le moment la premiere row, mais on va stocker en plus les couleurs qu'on utilisera pour les rows su                              ivantes, ce test est désigné pour une matrix sous la rpz [1D]
+            #on test pour le moment la premiere row, mais on va stocker en plus les couleurs qu'on utilisera pour les rows suivantes, ce test est désigné pour une matrix sous la rpz [1D]
             if rowIndex == 0:
                 centered =  f"{cell:^{cellLength}}"
                 botRow += colors[cell] + centered + colors['reset'] + '|'
-                columnColors.append(colors[cell]) #on ajoute les couleurs des cols pour les réutiliser
+                if is1D:
+                    columnColors.append(colors[cell]) #on ajoute les couleurs des cols pour les réutiliser
             else:
-                botRow += columnColors[indexColColors] + f"{cell:^{cellLength}}{colors['reset']}|"
+                if is1D:
+                    botRow += columnColors[indexColColors] + f"{cell:^{cellLength}}{colors['reset']}|"
+                else:
+                    if rowIndex == 1 and indexColColors == 0:
+                        rowColor = colors[cell]
+                    botRow += rowColor + f"{cell:^{cellLength}}{colors['reset']}|"
         topRow += "\n"
         row = topRow + botRow
         print(row)        
     #we print the last line
     print(topRow) # pyright: ignore[reportPossiblyUnboundVariable]
-    print(f"check stockColor:{columnColors}")
 
-matrix = get_resists_class("war")
+matrix = get_resists()
 # matrix = get_baseStats_class("rog")
 draw_grid(matrix)

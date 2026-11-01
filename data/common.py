@@ -15,6 +15,9 @@ class   colorsData(TypedDict):
     magic: str
     vita: str
     res: str
+    #-- BASE LIMITS --
+    min: str 
+    max: str
     #-- RES --
     fire: str
     lightning: str
@@ -44,17 +47,21 @@ hashmap = {
 colors: colorsData = {
     #-- CLASSES --
     'war': "\033[38;5;130m",
-    'rog': "\033[38;5;40m",
+    'rog': "\033[38;5;71m",
     'sorc': "\033[38;5;129m",
 
     #-- BASE STATS --
-    'hp': "\033[38;5;196m",
+    'hp': "\033[38;5;131m",
     'mana': "\033[38;5;27m",
     'str': "\033[38;5;130m",
     'dex': "\033[38;5;40m",
     'magic': "\033[38;5;129m",
     'vita': "\033[38;5;208m",
     'res': "\033[38;5;129m",
+    
+    #-- BASE STATS LIMITS --
+    'min': "\033[38;5;46m",
+    'max': "\033[38;5;196m",
 
     #-- RESISTS --
     'fire': "\033[38;5;196m",
